@@ -1,0 +1,12 @@
+Image from clipboard
+open image
+themes like windows (linght/dark) (material design)
+window in window design
+left side menu with instruments(icons)with submenus (fotor)
+opened image history
+On top File like menus
+
+		//ImageSharp
+		//Magick.NET
+		//SkiaSharp
+
