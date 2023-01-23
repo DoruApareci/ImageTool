@@ -10,3 +10,8 @@ On top File like menus
 		//Magick.NET
 		//SkiaSharp
 
+            <CC:SideMenu.MenuItems>
+                <CC:SideMenuItem Header="Home" Icon="Home" />
+                <CC:SideMenuItem Header="Settings" Icon="Settings" />
+                <CC:SideMenuItem Header="About" Icon="Info" />
+            </CC:SideMenu.MenuItems>
