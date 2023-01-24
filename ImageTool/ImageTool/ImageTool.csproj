@@ -7,15 +7,7 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="Assets\icon_dark.png" />
-    <None Remove="Assets\icon_light.png" />
-  </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Models\" />
-    <Folder Include="Services\" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="MaterialDesignColors" Version="2.0.9" />
@@ -25,8 +17,21 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Assets\icon_dark.png" />
+    <ProjectReference Include="..\ImageFiltersLibrary\ImageFiltersLibrary.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Assets\default.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\icon_dark.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Assets\AboutBkg.jpg" />
     <Resource Include="Assets\icon_light.png" />
+    <Resource Include="Assets\logo.png" />
+    <Resource Include="Assets\logo1.png" />
+    <Resource Include="Assets\logo2.png" />
   </ItemGroup>
 
 </Project>
