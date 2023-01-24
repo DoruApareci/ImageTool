@@ -6,9 +6,6 @@ using System.Threading.Tasks;
 
 namespace ImageFiltersLibrary.Parameters
 {
-    /// <summary>
-    /// Algorithm parameter for agorithms which accept a range of data
-    /// </summary>
     public class RangeAlgorithmParameter : AlgorithmParameter
     {
         public int Maximum

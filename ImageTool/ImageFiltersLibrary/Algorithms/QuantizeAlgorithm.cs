@@ -78,15 +78,6 @@ namespace ImageFiltersLibrary.Algorithms
             Options.Add(new AlgorithmOption(InputType.MultipleChoice, GetMethodOptions()));
             return Options;
         }
-
-        /// <summary>
-        /// Gets the display info
-        /// </summary>
-        /// <returns></returns>
-        public override string GetDisplayInfo()
-        {
-            return "Quantize the image";
-        }
         #endregion
 
         #region Private Methods

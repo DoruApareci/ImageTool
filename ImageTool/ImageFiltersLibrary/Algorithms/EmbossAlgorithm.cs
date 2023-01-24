@@ -72,15 +72,6 @@ namespace ImageFiltersLibrary.Algorithms
             pixDouble = new List<double>();
             return UpdateImage();
         }
-
-        /// <summary>
-        /// Get the display information about the algorithm
-        /// </summary>
-        /// <returns></returns>
-        public override string GetDisplayInfo()
-        {
-            return "Bas-relief Effect for your image";
-        }
         #endregion
 
         #region Private Methods

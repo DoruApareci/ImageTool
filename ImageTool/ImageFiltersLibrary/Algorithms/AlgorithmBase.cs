@@ -129,7 +129,6 @@ namespace ImageFiltersLibrary.Algorithms
         #region Abstract and Virtual Methods
         public abstract BitmapSource ApplyEffect(List<AlgorithmParameter> algorithmParameter, bool isSave = false);
         public abstract IList<AlgorithmOption> GetOptions();
-        public abstract string GetDisplayInfo();
         #endregion
 
         #region Public Methods

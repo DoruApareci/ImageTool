@@ -104,15 +104,6 @@ namespace ImageFiltersLibrary.Algorithms
             });
             return Options;
         }
-
-        /// <summary>
-        /// Gets the display information for this algorithm
-        /// </summary>
-        /// <returns></returns>
-        public override string GetDisplayInfo()
-        {
-            return "X-Ray Effect for your image";
-        }
         #endregion
     }
 }

@@ -6,9 +6,6 @@ using System.Threading.Tasks;
 
 namespace ImageFiltersLibrary.Parameters
 {
-    /// <summary>
-    /// Algorithm parameter
-    /// </summary>
     public class AlgorithmParameter
     {
         public int Value

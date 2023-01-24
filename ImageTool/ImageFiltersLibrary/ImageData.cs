@@ -1,9 +1,4 @@
 ﻿using ImageFiltersLibrary.Parameters;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Media.Imaging;
 using System.Windows.Media;
 using System.Windows;
@@ -417,11 +412,6 @@ namespace ImageFiltersLibrary
         #endregion
 
         #region Private Methods
-        /// <summary>
-        /// Method to scale the original image to 600 x 600.
-        /// This should preserve the aspect ratio of the original image.
-        /// </summary>
-        /// <param name="fileName"></param>
         void ScaleImage(string fileName)
         {
             double fac1 = Convert.ToDouble(scaledWidth / (1.0 * originalWidth));
@@ -439,10 +429,6 @@ namespace ImageFiltersLibrary
             scaledImage.CopyPixels(Int32Rect.Empty, scaledPixels, stride, 0);
         }
 
-        /// <summary>
-        /// Computes the scaled width and height of the image, so as to 
-        /// maintain the aspect ratio of original image.
-        /// </summary>
         void ComputeScaledWidthAndHeight(int size = 600)
         {
             if (originalWidth > originalHeight)
@@ -457,11 +443,6 @@ namespace ImageFiltersLibrary
             }
         }
 
-        /// <summary>
-        /// Reads the Image and populates the fields
-        /// </summary>
-        /// <param name="fn"></param>
-        /// <returns></returns>
         bool ReadImage(string fn)
         {
             bool retVal = false;
@@ -484,9 +465,6 @@ namespace ImageFiltersLibrary
             return retVal;
         }
 
-        /// <summary>
-        /// Populate the scaled pixels
-        /// </summary>
         void PopulatePixelsScaled()
         {
             var capacity = originalHeight * originalWidth;
@@ -538,9 +516,6 @@ namespace ImageFiltersLibrary
             }
         }
 
-        /// <summary>
-        /// Populate original pixels
-        /// </summary>
         void PopulateOriginalPixels()
         {
             int stride = (originalWidth * originalImage.Format.BitsPerPixel + 7) / 8;

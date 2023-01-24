@@ -67,15 +67,6 @@ namespace ImageFiltersLibrary.Algorithms
             Options.Add(new AlgorithmOption(InputType.SingleInput, magnitude));
             return Options;
         }
-
-        /// <summary>
-        /// Get display information for this algorithm
-        /// </summary>
-        /// <returns></returns>
-        public override string GetDisplayInfo()
-        {
-            return "Old photograph look.";
-        }
         #endregion
 
         #region Private Methods

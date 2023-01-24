@@ -99,15 +99,6 @@ namespace ImageFiltersLibrary.Algorithms
             magnitudeImage = new List<double>();
             return result;
         }
-
-        /// <summary>
-        /// Get information about the algorithm
-        /// </summary>
-        /// <returns></returns>
-        public override string GetDisplayInfo()
-        {
-            return "Edge or Outline Effect";
-        }
         #endregion
 
         #region Private Methods

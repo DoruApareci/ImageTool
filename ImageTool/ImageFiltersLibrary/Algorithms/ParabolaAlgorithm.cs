@@ -85,15 +85,6 @@ namespace ImageFiltersLibrary.Algorithms
             Options.Add(new AlgorithmOption(InputType.MultipleChoice, GetMethods()));
             return Options;
         }
-
-        /// <summary>
-        /// Gets the display information for this algorithm
-        /// </summary>
-        /// <returns></returns>
-        public override string GetDisplayInfo()
-        {
-            return "Parabola transformation on image";
-        }
         #endregion
 
         #region Private Methods
