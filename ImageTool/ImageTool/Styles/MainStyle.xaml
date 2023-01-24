@@ -1,6 +1,17 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
+    <!--Main View Text-->
+    <Style x:Key="MainViewText" TargetType="{x:Type TextBlock}">
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextColor}"/>
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+    </Style>
+    <!--Main View Border-->
+    <Style x:Key="MainViewBorder" TargetType="{x:Type Border}">
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="BorderBrush" Value="Beige"/>
+    </Style>
     <!-- Start: Pop-up Button Style -->
     <Style x:Key="PopupButtonStyle" TargetType="{x:Type Button}">
         <Setter Property="Background" Value="Transparent"/>
