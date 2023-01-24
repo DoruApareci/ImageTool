@@ -1,18 +1,39 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace ImageTool.Commands
 {
-    public abstract class BaseCommand : ICommand
+    public class BaseCommand : ICommand
     {
-        public event EventHandler? CanExecuteChanged;
+        Action<object> _Execute;
+        Predicate<object> _CanExecute;
 
-        public abstract bool CanExecute(object? parameter);
+        public BaseCommand(Action<object> executeCommand, Predicate<object> canExecute)
+        {
+            this._Execute = executeCommand;
+            this._CanExecute = canExecute;
+        }
 
-        public abstract void Execute(object? parameter);
+        public BaseCommand(Action<object> executeCommand)
+        {
+            this._Execute = executeCommand;
+        }
+
+        public bool CanExecute(object parameter)
+        {
+            if (_CanExecute == null)
+                return true;
+            else
+            {
+                return _CanExecute(parameter);
+            }
+        }
+
+        public event EventHandler CanExecuteChanged;
+
+        public void Execute(object parameter)
+        {
+            _Execute(parameter);
+        }
     }
 }
