@@ -15,3 +15,17 @@ On top File like menus
                 <CC:SideMenuItem Header="Settings" Icon="Settings" />
                 <CC:SideMenuItem Header="About" Icon="Info" />
             </CC:SideMenu.MenuItems>
+
+
+<StatusBar DockPanel.Dock="Bottom" Height="20">
+            <StatusBarItem>
+                <TextBlock Text="{Binding StatusText}" FontSize="10"/>
+            </StatusBarItem>
+            <StatusBarItem>
+                <ProgressBar Height="13" Width="100">
+                    <ProgressBar.Value>
+                        <Binding Path="Progress" Mode="OneWay"/>
+                    </ProgressBar.Value>
+                </ProgressBar>
+            </StatusBarItem>
+        </StatusBar>
