@@ -1,5 +1,10 @@
-﻿using System;
+﻿using ImageTool.Commands;
+using ImageTool.Services;
+using ImageTool.Views;
+using System;
+using System.ComponentModel;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 
@@ -8,18 +13,25 @@ namespace ImageTool
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window, INotifyPropertyChanged
     {
+        public NavigationService _navService { get; set; }
+        
         public MainWindow()
         {
             InitializeComponent();
+            _navService = new NavigationService(this);
+            AboutCmd = new BaseCommand(new Action<object>(AboutDialog));
         }
-        private void BG_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        ICommand AboutCmd { get; set; }
+        
+        public void AboutDialog(object obj)
         {
-            Tg_Btn.IsChecked = false;
+            MessageBox.Show("2023 Apareci Dorin");
         }
 
-        // Start: MenuLeft PopupButton //
+
+    // Start: MenuLeft PopupButton //
         private void btnHome_MouseEnter(object sender, MouseEventArgs e)
         {
             if (Tg_Btn.IsChecked == false)
@@ -37,136 +49,69 @@ namespace ImageTool
             Popup.IsOpen = false;
         }
 
-        private void btnDashboard_MouseEnter(object sender, MouseEventArgs e)
+        private void btnFilters_MouseEnter(object sender, MouseEventArgs e)
         {
             if (Tg_Btn.IsChecked == false)
             {
-                Popup.PlacementTarget = btnDashboard;
+                Popup.PlacementTarget = btnFilters;
                 Popup.Placement = PlacementMode.Right;
                 Popup.IsOpen = true;
-                Header.PopupText.Text = "Dashboard";
+                Header.PopupText.Text = "Image filters";
             }
         }
 
-        private void btnDashboard_MouseLeave(object sender, MouseEventArgs e)
+        private void btnFilters_MouseLeave(object sender, MouseEventArgs e)
         {
             Popup.Visibility = Visibility.Collapsed;
             Popup.IsOpen = false;
         }
 
-        private void btnProducts_MouseEnter(object sender, MouseEventArgs e)
+        private void btnCompression_MouseEnter(object sender, MouseEventArgs e)
         {
             if (Tg_Btn.IsChecked == false)
             {
-                Popup.PlacementTarget = btnProducts;
+                Popup.PlacementTarget = btnCompression;
                 Popup.Placement = PlacementMode.Right;
                 Popup.IsOpen = true;
-                Header.PopupText.Text = "Products";
+                Header.PopupText.Text = "Image compression";
             }
         }
 
-        private void btnProducts_MouseLeave(object sender, MouseEventArgs e)
+        private void btnCompression_MouseLeave(object sender, MouseEventArgs e)
         {
             Popup.Visibility = Visibility.Collapsed;
             Popup.IsOpen = false;
         }
 
-        private void btnProductStock_MouseEnter(object sender, MouseEventArgs e)
+        private void btnSeamCarving_MouseEnter(object sender, MouseEventArgs e)
         {
             if (Tg_Btn.IsChecked == false)
             {
-                Popup.PlacementTarget = btnProductStock;
+                Popup.PlacementTarget = btnSeamCarving;
                 Popup.Placement = PlacementMode.Right;
                 Popup.IsOpen = true;
-                Header.PopupText.Text = "Product Stock";
+                Header.PopupText.Text = "Seam Carving";
             }
         }
 
-        private void btnProductStock_MouseLeave(object sender, MouseEventArgs e)
+        private void btnSeamCarving_MouseLeave(object sender, MouseEventArgs e)
         {
             Popup.Visibility = Visibility.Collapsed;
             Popup.IsOpen = false;
         }
-
-        private void btnOrderList_MouseEnter(object sender, MouseEventArgs e)
+        
+        private void btnAbout_MouseEnter(object sender, MouseEventArgs e)
         {
             if (Tg_Btn.IsChecked == false)
             {
-                Popup.PlacementTarget = btnOrderList;
+                Popup.PlacementTarget = btnAbout;
                 Popup.Placement = PlacementMode.Right;
                 Popup.IsOpen = true;
-                Header.PopupText.Text = "Order List";
+                Header.PopupText.Text = "About";
             }
         }
 
-        private void btnOrderList_MouseLeave(object sender, MouseEventArgs e)
-        {
-            Popup.Visibility = Visibility.Collapsed;
-            Popup.IsOpen = false;
-        }
-
-        private void btnBilling_MouseEnter(object sender, MouseEventArgs e)
-        {
-            if (Tg_Btn.IsChecked == false)
-            {
-                Popup.PlacementTarget = btnBilling;
-                Popup.Placement = PlacementMode.Right;
-                Popup.IsOpen = true;
-                Header.PopupText.Text = "Billing";
-            }
-        }
-
-        private void btnBilling_MouseLeave(object sender, MouseEventArgs e)
-        {
-            Popup.Visibility = Visibility.Collapsed;
-            Popup.IsOpen = false;
-        }
-
-        private void btnPointOfSale_MouseEnter(object sender, MouseEventArgs e)
-        {
-            if (Tg_Btn.IsChecked == false)
-            {
-                Popup.PlacementTarget = btnPointOfSale;
-                Popup.Placement = PlacementMode.Right;
-                Popup.IsOpen = true;
-                Header.PopupText.Text = "Poin Of Sale";
-            }
-        }
-
-        private void btnPointOfSale_MouseLeave(object sender, MouseEventArgs e)
-        {
-            Popup.Visibility = Visibility.Collapsed;
-            Popup.IsOpen = false;
-        }
-
-        private void btnSecurity_MouseEnter(object sender, MouseEventArgs e)
-        {
-            if (Tg_Btn.IsChecked == false)
-            {
-                Popup.PlacementTarget = btnSecurity;
-                Popup.Placement = PlacementMode.Right;
-                Popup.IsOpen = true;
-                Header.PopupText.Text = "Security";
-            }
-        }
-
-        private void btnSecurity_MouseLeave(object sender, MouseEventArgs e)
-        {
-            Popup.Visibility = Visibility.Collapsed;
-            Popup.IsOpen = false;
-        }
-        private void btnSetting_MouseEnter(object sender, MouseEventArgs e)
-        {
-            if (Tg_Btn.IsChecked == false)
-            {
-                Popup.PlacementTarget = btnSetting;
-                Popup.Placement = PlacementMode.Right;
-                Popup.IsOpen = true;
-                Header.PopupText.Text = "Setting";
-            }
-        }
-
-        private void btnSetting_MouseLeave(object sender, MouseEventArgs e)
+        private void btnAbout_MouseLeave(object sender, MouseEventArgs e)
         {
             Popup.Visibility = Visibility.Collapsed;
             Popup.IsOpen = false;
@@ -193,20 +138,42 @@ namespace ImageTool
         }
         // End: Button Close | Restore | Minimize
 
-        private void btnHome_Click(object sender, RoutedEventArgs e)
-        {
-            fContainer.Navigate(new System.Uri("Pages/Home.xaml", UriKind.RelativeOrAbsolute));
-        }
-
-        private void btnDashboard_Click(object sender, RoutedEventArgs e)
-        {
-            fContainer.Navigate(new System.Uri("Pages/Dashboard.xaml", UriKind.RelativeOrAbsolute));
-        }
-
         private void RowDefinition_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
                 this.DragMove();
+        }
+        
+        public void UpdateView(UserControl userControl)
+        {
+            fContainer.Content = null;
+            fContainer.Content = userControl;
+        }
+
+        private void btnHome_Click(object sender, RoutedEventArgs e)
+        {
+            _navService.Navigate(new UTMLogoView());
+        }
+
+        private void btnFilters_Click(object sender, RoutedEventArgs e)
+        {
+            _navService.Navigate(new MainView());
+        }
+
+        private void btnCompression_Click(object sender, RoutedEventArgs e)
+        {
+            _navService.Navigate(new ImageCompressionView());
+        }
+
+        private void btnSeamCarving_Click(object sender, RoutedEventArgs e)
+        {
+            _navService.Navigate(new SeamCarvingView());
+        }
+
+        private void btnAbout_Click(object sender, RoutedEventArgs e)
+        {
+            AboutDialog ab = new AboutDialog();
+            ab.ShowDialog();
         }
     }
 }
