@@ -23,7 +23,6 @@ namespace ImageTool.ViewModels
         
         #endregion
 
-
         public FilterBaseViewModel()
         {
             openFile = new BaseCommand(new Action<object>(SelectFile));
@@ -49,6 +48,7 @@ namespace ImageTool.ViewModels
                 LoadEffectControl(currentEffect);
             }
         }
+        
         public string InputFileName
         {
             get
@@ -75,6 +75,7 @@ namespace ImageTool.ViewModels
                 return openFile;
             }
         }
+        
         public ICommand LoadEffectCommand
         {
             get
@@ -82,6 +83,7 @@ namespace ImageTool.ViewModels
                 return loadEffectCommand;
             }
         }
+
         public List<String> Effects
         {
             get
@@ -89,7 +91,6 @@ namespace ImageTool.ViewModels
                 return effects;
             }
         }
-
 
         public BaseViewModel CurrentViewModel
         {
@@ -102,6 +103,7 @@ namespace ImageTool.ViewModels
                 currentViewModel = value;
             }
         }
+        
         public ICommand SaveImageCommand
         {
             get
@@ -118,7 +120,6 @@ namespace ImageTool.ViewModels
             {
                 InputFileName = filename;
             }
-
         }
         
         bool ValidateFile(string fileName)
@@ -191,18 +192,7 @@ namespace ImageTool.ViewModels
         }
         #endregion
 
-        #region INotifyPropertyChanged Members
-        
-        public void NotifyPropertyChanged(string propertyName)
-        {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
         public event PropertyChangedEventHandler PropertyChanged;
-        #endregion
 
         ImageFiltersLibrary.Effects enumValue;
     }

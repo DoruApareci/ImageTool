@@ -7,8 +7,6 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
-
-
   <ItemGroup>
     <PackageReference Include="MaterialDesignColors" Version="2.0.9" />
     <PackageReference Include="MaterialDesignThemes" Version="4.6.1" />
@@ -18,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ImageFiltersLibrary\ImageFiltersLibrary.csproj" />
+    <ProjectReference Include="..\SeamCarverLibrary\SeamCarverLibrary.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,6 +26,12 @@
     <Content Include="Assets\icon_dark.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <EmbeddedResource Include="Assets\1.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <Resource Include="Assets\AboutBkg.jpg" />
     <Resource Include="Assets\icon_light.png" />
     <Resource Include="Assets\logo.png" />
