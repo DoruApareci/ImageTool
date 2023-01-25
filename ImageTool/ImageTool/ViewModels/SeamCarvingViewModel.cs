@@ -71,10 +71,36 @@ namespace ImageTool.ViewModels
         public SeamCarvingViewModel()
         {
             OpenFile = new BaseCommand(new Action<object>(SelectFile));
-            //SaveImageCommand = new BaseCommand(new Action<object>(SaveImage));
+            SaveImageCommand = new BaseCommand(new Action<object>(SaveImage));
             SeamCarveCommand = new BaseCommand(new Action<object>(SeamCarve), new Predicate<object>(CanSeamCarve));
             InputFileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Assets", "1.jpg");
             LoadImage();
+        }
+
+        void SaveImage(object typeOfSave)
+        {
+            ImageSource imageToBeSaved = null;
+            string proposedFileName = string.Empty;
+            if (typeOfSave.ToString() == "Original")
+            {
+                imageToBeSaved = OutputImage;
+                proposedFileName = System.IO.Path.GetFileNameWithoutExtension(InputFileName) + "_SeamCarved" + System.IO.Path.GetExtension(InputFileName);
+            }
+            else
+            {
+                imageToBeSaved = OutputImage;
+                proposedFileName = System.IO.Path.GetFileNameWithoutExtension(InputFileName) + "_SeamCarved_Scaled" + System.IO.Path.GetExtension(InputFileName);
+            }
+            var fileName = FileIOService.ShowFileDialogue(imageToBeSaved, proposedFileName);
+            if (!String.IsNullOrEmpty(fileName))
+            {
+                Mouse.OverrideCursor = Cursors.Wait;
+                FileIOService.SaveImageFile(imageToBeSaved, fileName);
+                imageToBeSaved = null;
+                Mouse.OverrideCursor = null;
+                GC.Collect();
+                GC.WaitForFullGCComplete();
+            }
         }
 
         void SelectFile(object input)
