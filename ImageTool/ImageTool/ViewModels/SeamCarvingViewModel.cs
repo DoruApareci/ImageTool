@@ -43,7 +43,7 @@ namespace ImageTool.ViewModels
                                     false, // HD
                                     false, // forward energy
                                     false, // Paralel
-                                    0,//NeighbourCountRatio,
+                                    0.004348, //NeighbourCountRatio,
                                     BlockSize
                                     );
             try
