@@ -30,6 +30,7 @@ namespace ImageTool.ViewModels
             saveImageCommand = new BaseCommand(new Action<object>(SaveImage));
 
             var availableEffects = Enum.GetNames(typeof(ImageFiltersLibrary.Effects)).ToList();
+            availableEffects.Remove("Quantize");
             effects = availableEffects;
             LoadEffectControl(availableEffects[0]);
             CurrentEffect = effects[0];
@@ -141,8 +142,7 @@ namespace ImageTool.ViewModels
             CurrentViewModel = null;
             var currentEffect = effect.ToString();
             enumValue = (ImageFiltersLibrary.Effects)Enum.Parse(typeof(ImageFiltersLibrary.Effects), currentEffect);
-            if (currentEffect == "Quantize" ||
-                currentEffect == "Edge" ||
+            if (currentEffect == "Edge" ||
                 currentEffect == "Parabola")
             {
                 CurrentViewModel = new MultipleChoiceViewModel(enumValue);
