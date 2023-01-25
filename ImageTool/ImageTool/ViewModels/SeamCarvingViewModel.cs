@@ -7,7 +7,6 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -81,16 +80,8 @@ namespace ImageTool.ViewModels
         {
             ImageSource imageToBeSaved = null;
             string proposedFileName = string.Empty;
-            if (typeOfSave.ToString() == "Original")
-            {
                 imageToBeSaved = OutputImage;
                 proposedFileName = System.IO.Path.GetFileNameWithoutExtension(InputFileName) + "_SeamCarved" + System.IO.Path.GetExtension(InputFileName);
-            }
-            else
-            {
-                imageToBeSaved = OutputImage;
-                proposedFileName = System.IO.Path.GetFileNameWithoutExtension(InputFileName) + "_SeamCarved_Scaled" + System.IO.Path.GetExtension(InputFileName);
-            }
             var fileName = FileIOService.ShowFileDialogue(imageToBeSaved, proposedFileName);
             if (!String.IsNullOrEmpty(fileName))
             {

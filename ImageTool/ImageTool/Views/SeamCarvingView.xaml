@@ -26,7 +26,7 @@
             <StackPanel Grid.Row="0" Margin="10">
                 <TextBlock Style="{DynamicResource MainViewText}">Input Image</TextBlock>
                 <Border Style="{DynamicResource MainViewBorder}">
-                    <Image Source="{Binding InputImage}" StretchDirection="DownOnly" Stretch="Fill" RenderOptions.BitmapScalingMode="NearestNeighbor"/>
+                    <Image Source="{Binding InputImage}" RenderOptions.BitmapScalingMode="NearestNeighbor"/>
                 </Border>
             </StackPanel>
             <GridSplitter Grid.Column="0" Width="4" HorizontalAlignment="Right"/>
@@ -36,8 +36,7 @@
                     <Image Name="OutPutImage" Source="{Binding OutputImage}" RenderOptions.BitmapScalingMode="HighQuality">
                         <Image.ContextMenu>
                             <ContextMenu>
-                                <MenuItem Command="{Binding SaveImageCommand}" Header="SaveOriginal" CommandParameter="Original"></MenuItem>
-                                <MenuItem Command="{Binding SaveImageCommand}" Header="SaveScaledImage" CommandParameter="Scaled"></MenuItem>
+                                <MenuItem Command="{Binding SaveImageCommand}" Header="Save Original"></MenuItem>
                             </ContextMenu>
                         </Image.ContextMenu>
                     </Image>
