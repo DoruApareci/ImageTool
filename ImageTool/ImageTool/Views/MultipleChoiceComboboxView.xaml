@@ -6,7 +6,6 @@
              xmlns:local="clr-namespace:ImageTool.Views"
              xmlns:cnv="clr-namespace:ImageTool.Converters"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800"
              Name ="RadioButtonWithColourView">
     
     <UserControl.Resources>
